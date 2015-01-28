@@ -1,0 +1,121 @@
+<h1>
+    Angular multi state toggle
+</h1>
+
+<h2>Simple example</h2>
+<button class="btn btn-default" multistate-toggle="['state 1', 'state 2', 'state 3']" ng-model="state">{{state}}</button>
+<hr>
+
+<tabset>
+    <tab heading="HTML">
+        <!-- HTML generated using hilite.me -->
+    <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+<pre style="margin: 0; line-height: 125%; background-color: inherit; border: none;">
+<span style="color: #f92672">&lt;button</span>
+    <span style="color: #a6e22e">multistate-toggle=</span><span style="color: #e6db74">&quot;[&#39;state 1&#39;, &#39;state 2&#39;, &#39;state 3&#39;]&quot;</span>
+    <span style="color: #a6e22e">ng-model=</span><span style="color: #e6db74">&quot;state&quot;</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #75715e">{{</span><span style="color: #f8f8f2">state</span><span style="color: #75715e">}}</span>
+<span style="color: #f92672">&lt;/button&gt;</span>
+</pre>
+    </div>
+
+
+    </tab>
+</tabset>
+<br>
+
+<h2>Filter example</h2>
+<button
+    class="btn btn-default"
+    multistate-toggle="['all', 'red', 'green', 'white', 'yellow']"
+    style="width: 100px"
+    ng-model="color">
+    <span>
+        {{color}}
+    </span>
+</button>
+
+<ul class="list-unstyled" style="height: 350px; overflow-y: scroll">
+    <li ng-repeat="apple in apples | filter:color:comparator" style="margin-top: 10px; border-bottom: 1px solid #ddd; padding: 5px;">
+        <img ng-src="{{apple.src}}" alt="" style="max-height: 50px; width: 50px;">
+        <span style="margin-left: 30px;">{{apple.description}}</span>
+    </li>
+</ul>
+<hr>
+
+<tabset>
+    <tab heading="HTML">
+        <!-- HTML generated using hilite.me -->
+        <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; margin: 10px 0;">
+<pre style="margin: 0; line-height: 125%; background-color: inherit; border: none"><span style="color: #f92672">&lt;button</span>
+    <span style="color: #a6e22e">multistate-toggle=</span><span style="color: #e6db74">&quot;[&#39;all&#39;, &#39;red&#39;, &#39;green&#39;, &#39;white&#39;, &#39;yellow&#39;]&quot;</span>
+    <span style="color: #a6e22e">ng-model=</span><span style="color: #e6db74">&quot;color&quot;</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #f92672">&lt;span&gt;</span><span style="color: #75715e">{{</span><span style="color: #f8f8f2">color</span><span style="color: #75715e">}}</span><span style="color: #f92672">&lt;/span&gt;</span>
+<span style="color: #f92672">&lt;/button&gt;</span>
+
+<span style="color: #f92672">&lt;ul</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #f92672">&lt;li</span> <span style="color: #a6e22e">ng-repeat=</span><span style="color: #e6db74">&quot;apple in apples | filter:color:comparator&quot;</span><span style="color: #f92672">&gt;</span>
+        <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">ng-src=</span><span style="color: #e6db74">&quot;</span><span style="color: #75715e">{{</span><span style="color: #f8f8f2">apple.src</span><span style="color: #75715e">}}</span><span style="color: #e6db74">&quot; </span><span style="color: #f92672">&gt;</span>
+        <span style="color: #f92672">&lt;span</span><span style="color: #f92672">&gt;</span><span style="color: #75715e">{{</span><span style="color: #f8f8f2">apple.description</span><span style="color: #75715e">}}</span><span style="color: #f92672">&lt;/span&gt;</span>
+    <span style="color: #f92672">&lt;/li&gt;</span>
+<span style="color: #f92672">&lt;/ul&gt;</span>
+</pre>
+        </div>
+    </tab>
+    <tab heading="JS">
+        <!-- HTML generated using hilite.me -->
+        <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; margin: 10px 0;">
+<pre style="margin: 0; line-height: 125%; background-color: inherit; border: none;"><span style="color: #a6e22e">angular</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">module</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;ulanMApp&#39;</span><span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">controller</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;MainCtrl&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$scope</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #a6e22e">$scope</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">apples</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[{</span>
+            <span style="color: #a6e22e">src</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;/images/apples/red.jpg&#39;</span><span style="color: #f8f8f2">,</span>
+            <span style="color: #a6e22e">color</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;red&#39;</span><span style="color: #f8f8f2">,</span>
+            <span style="color: #a6e22e">description</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;red apple #1&#39;</span>
+            <span style="color: #f8f8f2">},</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #a6e22e">src</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;/images/apples/red-2.jpg&#39;</span><span style="color: #f8f8f2">,</span>
+            <span style="color: #a6e22e">color</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;red&#39;</span><span style="color: #f8f8f2">,</span>
+            <span style="color: #a6e22e">description</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;red apple #2&#39;</span>
+            <span style="color: #f8f8f2">},</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #a6e22e">src</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;/images/apples/green.jpg&#39;</span><span style="color: #f8f8f2">,</span>
+            <span style="color: #a6e22e">color</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;green&#39;</span><span style="color: #f8f8f2">,</span>
+            <span style="color: #a6e22e">description</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;green apple #1&#39;</span>
+            <span style="color: #f8f8f2">},</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #a6e22e">src</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;/images/apples/green-2.jpg&#39;</span><span style="color: #f8f8f2">,</span>
+            <span style="color: #a6e22e">color</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;green&#39;</span><span style="color: #f8f8f2">,</span>
+            <span style="color: #a6e22e">description</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;green apple #2&#39;</span>
+            <span style="color: #f8f8f2">},</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #a6e22e">src</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;/images/apples/green-3.jpg&#39;</span><span style="color: #f8f8f2">,</span>
+            <span style="color: #a6e22e">color</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;green&#39;</span><span style="color: #f8f8f2">,</span>
+            <span style="color: #a6e22e">description</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;green apple #3&#39;</span>
+            <span style="color: #f8f8f2">},</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #a6e22e">src</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;/images/apples/white.png&#39;</span><span style="color: #f8f8f2">,</span>
+            <span style="color: #a6e22e">color</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;white&#39;</span><span style="color: #f8f8f2">,</span>
+            <span style="color: #a6e22e">description</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;white apple #1&#39;</span>
+            <span style="color: #f8f8f2">},</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #a6e22e">src</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;/images/apples/white-2.png&#39;</span><span style="color: #f8f8f2">,</span>
+            <span style="color: #a6e22e">color</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;white&#39;</span><span style="color: #f8f8f2">,</span>
+            <span style="color: #a6e22e">description</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;white apple #2&#39;</span>
+            <span style="color: #f8f8f2">},</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #a6e22e">src</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;/images/apples/white-3.jpg&#39;</span><span style="color: #f8f8f2">,</span>
+            <span style="color: #a6e22e">color</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;white&#39;</span><span style="color: #f8f8f2">,</span>
+            <span style="color: #a6e22e">description</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;white apple #3&#39;</span>
+            <span style="color: #f8f8f2">},</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #a6e22e">src</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;/images/apples/yellow.jpg&#39;</span><span style="color: #f8f8f2">,</span>
+            <span style="color: #a6e22e">color</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;yellow&#39;</span><span style="color: #f8f8f2">,</span>
+            <span style="color: #a6e22e">description</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;yellow apple #1&#39;</span>
+        <span style="color: #f8f8f2">}];</span>
+
+        <span style="color: #a6e22e">$scope</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">comparator</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">actual</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">expected</span><span style="color: #f8f8f2">){</span>
+            <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">expected</span> <span style="color: #f92672">===</span> <span style="color: #e6db74">&#39;all&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+                <span style="color: #66d9ef">return</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">actual</span> <span style="color: #f92672">===</span> <span style="color: #a6e22e">expected</span><span style="color: #f8f8f2">){</span>
+                <span style="color: #66d9ef">return</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #f8f8f2">}</span>
+            <span style="color: #66d9ef">return</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">};</span>
+    <span style="color: #f8f8f2">});</span>
+</pre>
+        </div>
+    </tab>
+</tabset>
+<hr>
